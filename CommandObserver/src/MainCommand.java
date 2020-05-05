@@ -1,5 +1,5 @@
 
-public class MainLauncher {
+public class MainCommand {
 
 	public static void main(String[] args) {
 		
@@ -23,6 +23,7 @@ public class MainLauncher {
 		
 		instructor.setCommand(standUpCommand);
 		instructor.giveCommand();
+		
 	}
 
 }

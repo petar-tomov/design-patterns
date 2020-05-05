@@ -1,6 +1,6 @@
 
 public class Instructor {
-	
+
 	private ICommand command;
 	private String name;
 	
@@ -26,4 +26,5 @@ public class Instructor {
 		command.execute();
 	}
 
+	
 }
