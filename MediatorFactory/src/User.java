@@ -14,7 +14,7 @@ public class User implements IChatMember {
 	
 	@Override
 	public void receive(String message) {
-		System.out.println(this.name + " received: " + message);
+		System.out.println(" *** " + this.name + " received: " + message);
 	}
 
 	@Override
@@ -43,11 +43,18 @@ public class User implements IChatMember {
 		return this.mediator;
 	}
 
-	// THE USER CAN'T SET THE CONTROL WORD
+	// THE USER CAN'T SET THE CONTROL WORD;
 	@Override
 	public void setControlWord(String controlWord) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	// THE USER CAN'T VALIDATE;
+	@Override
+	public boolean isMessageValid(String message, IChatMember chatMember) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

@@ -3,7 +3,7 @@ public class Bot implements IChatMember{
 
 	private IMessageMediator mediator;
 	private String name;
-	private String forbiddenWord;
+	private String controlWord;
 	
 	@Override
 	public void setName(String name) {
@@ -21,24 +21,18 @@ public class Bot implements IChatMember{
 	}
 
 	@Override
-	public void setMediator() {
-		// REMOVING THE MEDIATOR
-		this.mediator = null;
-	}
-
-	@Override
 	public IMessageMediator getMediator() {
 		return this.mediator;
 	}
 	
 	@Override
 	public void setControlWord(String word) {
-		this.forbiddenWord = word;
-		this.name = "BOT["+ forbiddenWord +"]";
+		this.controlWord = word;
+		this.name = "BOT["+ controlWord.toUpperCase() +"]";
 	}
 	
-	public boolean isForbiddenWord(String word) {
-    	return word.equals(forbiddenWord);
+	public boolean isForbiddenWord(String forbiddenWord) {
+    	return forbiddenWord.equals(controlWord);
     }
 	
 	public boolean isMessageValid(String message, IChatMember member) {
@@ -48,11 +42,16 @@ public class Bot implements IChatMember{
 			return false;
 		}
 		return true;
-		
 	}
 	
 	private void informChat(String name, String message) {
-		this.mediator.sendMessage(this.name + " removed: " + name + " from the chat because he said: " + message + " which is forbidden.", this);		
+		this.mediator.sendMessage(this.name + " removed " + name + " from the chat because " + name + " said " + message + " which is forbidden.", this);		
+	}
+	
+	@Override
+	public void setMediator() {
+		// REMOVING THE MEDIATOR
+		this.mediator = null;
 	}
 	
 	// BOT CAN'T RECEIVE NOR SEND MESSAGES;

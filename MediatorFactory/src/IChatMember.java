@@ -17,4 +17,6 @@ public interface IChatMember {
 
 	public void setControlWord(String controlWord);
 	
+	public boolean isMessageValid(String message, IChatMember chatMember);
+	
 }
