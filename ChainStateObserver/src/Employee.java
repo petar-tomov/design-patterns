@@ -27,7 +27,6 @@ public abstract class Employee implements IContext, IObservable {
 	}
 
 	public void acceptShipment(int level) {
-		
 		System.out.println("** Order level[" + level + "] is currently being processed by " + this.name);
 		
 		//if employee can handle order, he/she takes it
